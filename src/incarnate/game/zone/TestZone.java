@@ -5,18 +5,24 @@
  */
 package incarnate.game.zone;
 
+import incarnate.framework.util.DialogText;
 import incarnate.game.main.Resources;
 import incarnate.game.model.Atyx;
 import incarnate.game.model.Platform;
 import incarnate.game.model.SmallPlatform;
 import static incarnate.game.zone.Zone.ATYX_WIDTH;
 import java.awt.Graphics;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Vicki
  */
 public class TestZone extends Zone{
+    
+    DialogText dia = new DialogText();
     
     private Platform grassPlat1;
     
@@ -29,6 +35,12 @@ public class TestZone extends Zone{
          atyx = new Atyx(160, (int) pfInvisible.getY() + ((int) pfInvisible.getHeight() / 2), ATYX_WIDTH, ATYX_HEIGHT, ZONE_WIDTH, ZONE_HEIGHT);
          
          grassPlat1 = new SmallPlatform(725, 500, 50, 10);
+         
+        try {
+            dia.openDialog("test", "dialogbox", "0001");
+        } catch (IOException ex) {
+            Logger.getLogger(TestZone.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override

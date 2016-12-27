@@ -50,6 +50,7 @@ public class Zone extends State {
     {
         pfInvisible = new SmallPlatform(0, 610, ZONE_WIDTH, 150);
         atyx = new Atyx(160, (int) pfInvisible.getY() + ((int) pfInvisible.getHeight() / 2), ATYX_WIDTH, ATYX_HEIGHT, ZONE_WIDTH, ZONE_HEIGHT);
+        
     }
     
     @Override
