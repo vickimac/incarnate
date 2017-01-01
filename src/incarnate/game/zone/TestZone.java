@@ -44,7 +44,7 @@ public class TestZone extends Zone{
     }
     
     @Override
-        public void updatePlatforms(float delta)
+    public void updatePlatforms(float delta)
     {
         if (atyx.getVelY() >= 0)
         {

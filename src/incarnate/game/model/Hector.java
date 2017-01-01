@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.model;
 
 /**
- *
+ * Hector subclass of NPC. Doesn't have any custom actions yet.
+ * 
  * @author Vicki
  */
 public class Hector extends NPC {
