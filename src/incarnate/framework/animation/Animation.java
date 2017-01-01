@@ -69,9 +69,7 @@ public class Animation {
     private synchronized void wrapAnimation()
     {
         currentFrameIndex = 0;
-        System.out.println("currentTime: " + currentTime + " .. totalDuration: " + totalDuration);
         currentTime %= totalDuration;
-        System.out.println(currentTime);
     }
     
     /**

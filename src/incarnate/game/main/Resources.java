@@ -12,6 +12,16 @@ import javax.imageio.ImageIO;
 import incarnate.framework.animation.Animation;
 import incarnate.framework.animation.Frame;
 
+/**
+ * Holds media required by the program such as images, audio, colours, and 
+ * animations. Other classes can pull the media they need from this file.
+ * 
+ *  * Referenced from:
+ *      Cho, J. (2014) The Beginner's Guide to Android Game Development.
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
+ */
 public class Resources {
 	
 	public static BufferedImage atyx_lidle1, atyx_lidle2, atyx_lidle3, atyx_lidle4, atyx_lidle5,
@@ -25,7 +35,7 @@ public class Resources {
 								grassPlatform1,
 								hector_right, hector_left;
 	
-	public static AudioClip menuIntro, cellAfraid, songMarket, songWest,
+	public static AudioClip menuIntro, cellAfraid, songMarket, songWest, fireFlies,
 							menuBeep, menuSelect,
 							jumpSound;
 	
@@ -35,6 +45,9 @@ public class Resources {
 							atyx_lrunAnim, atyx_rrunAnim,
 							atyx_rjumpAnim1, atyx_rjumpAnim2, atyx_ljumpAnim1, atyx_ljumpAnim2;
 	
+        /**
+         * Loads all files from disk and assigns them to their own variable. 
+         */
 	public static void load()
 	{
 		// MENU RESOURCES
@@ -42,6 +55,7 @@ public class Resources {
 		cellAfraid = loadSound("sounds/Afraid.wav");
 		songMarket = loadSound("sounds/Market.wav");
 		songWest = loadSound("sounds/West.wav");
+                fireFlies = loadSound("sounds/Fireflies.wav");
 		
 		menuBeep = loadSound("sounds/MenuBeep2.wav");
 		menuSelect = loadSound("sounds/MenuBeep1.wav");
@@ -131,6 +145,13 @@ public class Resources {
 		grassPlatform1 = loadImage("graphics/grassPlatform1.png");
 	}
 	 
+        /**
+         * Loads an audio file from disk. Recommended that the file is .WAV
+         * format, MONO, has 16-bit encoding and a 44k Hz bitrate.
+         * 
+         * @param filename
+         * @return 
+         */
 	private static AudioClip loadSound(String filename)
 	{
 		URL fileURL = Resources.class.getResource("/resources/" + filename);

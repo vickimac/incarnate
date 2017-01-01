@@ -1,16 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.main;
 
 import javax.swing.JFrame;
 
 import incarnate.game.main.Resources;
 /**
- *
- * @author Vicki
+ * The main of the program. Contains the game-specific values such as the title,
+ * width and height. These can be changed if required and the entire program will
+ * respond to the change.
+ * 
+ *  * Referenced from:
+ *      Cho, J. (2014) The Beginner's Guide to Android Game Development.
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public class GameMain {
     
@@ -19,6 +21,11 @@ public class GameMain {
     public static final int GAME_HEIGHT = 500;
     public static Game sGame;
     
+    /**
+     * Sets up the window and the game. Also plays the menu intro.
+     * 
+     * @param args 
+     */
     public static void main(String[] args)
     {
         JFrame frame = new JFrame(GAME_TITLE);

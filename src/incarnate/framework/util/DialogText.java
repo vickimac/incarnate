@@ -51,9 +51,6 @@ public class DialogText {
             String line = null;
             while ((line = reader.readLine()) != null)
             {
-                System.out.println(line);
-                System.out.println(id);
-                System.out.println(line.substring(0,7));
                 if(id.equals(line.substring(0,7)))
                 {
                     
@@ -63,7 +60,6 @@ public class DialogText {
         } catch (IOException x) {
             System.err.format("IOException %s%n", x);
         }
-        System.out.println("diaCounter="+diaCounter);
         dialog = new String[diaCounter];
         
         try (BufferedReader reader = Files.newBufferedReader(path, charset))
@@ -74,7 +70,6 @@ public class DialogText {
                 if(id.equals(line.substring(0,7)))
                 {
                     dialog[i] = line.substring(8);
-                    System.out.println("dialog["+i+"] = " + dialog[i]);
                     i++;
                 }
             }
