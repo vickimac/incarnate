@@ -146,11 +146,16 @@ public class Resources {
 	}
 	 
         /**
-         * Loads an audio file from disk. Recommended that the file is .WAV
-         * format, MONO, has 16-bit encoding and a 44k Hz bitrate.
+         * Loads an audio file from disk. 
+         * File recommendations
+         *  Format: .WAV
+         *  Channels: Mono
+         *  Encoding: 16-bit
+         *  Bitrate: 44 kHz
          * 
-         * @param filename
-         * @return 
+         * @param filename  Name of the audio file to be loaded.
+         * 
+         * @return          Loaded audio clip.
          */
 	private static AudioClip loadSound(String filename)
 	{
@@ -158,6 +163,15 @@ public class Resources {
 		return Applet.newAudioClip(fileURL);
 	}
 	
+        /**
+         * Loads an image file from disk.
+         * File recommendations
+         *  Format: .PNG
+         * 
+         * @param filename  Name of the image file to be loaded.
+         * 
+         * @return          Loaded image.
+         */
 	private static BufferedImage loadImage(String filename)
 	{
 		BufferedImage img = null;

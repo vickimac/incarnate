@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.state;
 
 import incarnate.game.main.GameMain;
@@ -11,9 +6,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import incarnate.game.main.GameMain;
+
 /**
+ * The abstract class for all states.
+ * 
+ * Referenced from:
+ *      Cho, J. (2014) The Beginner's Guide to Android Game Development.
  *
- * @author Vicki
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public abstract class State {
     
@@ -29,6 +31,11 @@ public abstract class State {
     
     public abstract void onKeyRelease(KeyEvent e);
     
+    /**
+     * Sets the current state to the specified state.
+     * 
+     * @param newState  State to be changed to.
+     */
     public void setCurrentState(State newState)
     {
         GameMain.sGame.setCurrentState(newState);

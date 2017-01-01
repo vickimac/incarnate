@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.state;
 
 import java.awt.Color;
@@ -14,9 +9,15 @@ import java.awt.event.MouseEvent;
 import incarnate.game.main.GameMain;
 import incarnate.game.main.Resources;
 import incarnate.game.zone.TestZone;
+
 /**
- *
- * @author Vicki
+ * The Menu screen that the user sees when the game is loaded. Currently has
+ * Play (loads the first Zone, which is the Test Zone), Options (just an "Under
+ * Construction" message), and Exit (closes the game). Plays a sound when the
+ * user changes currently selected option with the arrow / WS keys.
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public class MenuState extends State {
     
@@ -31,6 +32,15 @@ public class MenuState extends State {
     @Override
     public void update(float delta) {}
     
+    /**
+     * Renders the menu screen. This includes:
+     *  - Menu background image
+     *  - Menu logo image
+     *  - Half-black rectangle behind options
+     *  - Options and their colours (currently selected is different colour)
+     * 
+     * @param g     Graphics
+     */
     @Override
     public void render(Graphics g)
     {
@@ -56,6 +66,13 @@ public class MenuState extends State {
     @Override
     public void onClick(MouseEvent e){}
     
+    /**
+     * Changes the current option that is selected based on the key press. Also
+     * performs the action needed if spacebar or enter are pressed depending on
+     * the current selection (e.g. Play will load the level)
+     * 
+     * @param e     Key press
+     */
     @Override
     public void onKeyPress(KeyEvent e)
     {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.state;
 
 import java.awt.Graphics;
@@ -10,9 +5,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import incarnate.game.main.Resources;
+
 /**
+ * First state of the game, loading all resources into the game. Then sets the
+ * current state to the Menu.
+ * 
+ * Referenced from:
+ *      Cho, J. (2014) The Beginner's Guide to Android Game Development.
  *
- * @author Vicki
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public class LoadState extends State {
     
@@ -20,7 +23,6 @@ public class LoadState extends State {
     public void init()
     {
         Resources.load();
-        System.out.println("Loaded successfully!");
     }
     
     @Override

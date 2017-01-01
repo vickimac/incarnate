@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.zone;
 
 import incarnate.game.main.GameMain;
@@ -17,8 +12,11 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 
 /**
- *
- * @author Vicki
+ * The main Zone class. Will be extended by others, as each zone is different.
+ * Zone contains all the default values and methods that are unlikely to change.
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public class Zone extends State {
     
@@ -45,6 +43,10 @@ public class Zone extends State {
         protected int camX;
         protected int camY;
         
+    /**
+     * Initialises the zone. Places a generic platform for the player to land on,
+     * as well as creating the player. This will be overridden by most zones.
+     */
     @Override
     public void init()
     {
@@ -53,6 +55,13 @@ public class Zone extends State {
         
     }
     
+    /**
+     * Updates the animations and current locations of all objects, as well as 
+     * updating the camera and key bindings.
+     * 
+     * @param delta     Time of delta
+     *                  ((updateDurationMillis + sleepDurationMillis) / 1000f)
+     */
     @Override
     public void update(float delta)
     {
@@ -65,6 +74,13 @@ public class Zone extends State {
         updateCamera(delta);
     }
     
+    /**
+     * Prevents the player from falling through platforms that are surfaces. May
+     * change this in the future by creating a surface decorator for platforms.
+     * 
+     * @param delta     Time of delta
+     *                  ((updateDurationMillis + sleepDurationMillis) / 1000f)
+     */
     public void updatePlatforms(float delta)
     {
         if (atyx.getVelY() >= 0)
@@ -81,6 +97,16 @@ public class Zone extends State {
         }
     }
     
+    /**
+     * KeyBindings. Allows the user to interact with the game, and the game 
+     * responds appropriately. 
+     * 
+     * May change this in the future to allow for user-specified key bindings,
+     * which will require loading the keys from file.
+     * 
+     * @param delta     Time of delta
+     *                  ((updateDurationMillis + sleepDurationMillis) / 1000f)
+     */
     public void updateKeyBindings(float delta)
     {
         if ((keyChars.containsKey('d') && keyChars.get('d')) || (keyCodes.containsKey(KeyEvent.VK_RIGHT) && keyCodes.get(KeyEvent.VK_RIGHT)))
@@ -125,6 +151,15 @@ public class Zone extends State {
                 
     }
     
+    /**
+     * Updates the location of the camera, which pans so that the player is always
+     * in the centre of the screen unless they are at the edge of a zone. This
+     * creates a Platformer feel as well as allowing for large maps that can be
+     * explored.
+     * 
+     * @param delta     Time of delta
+     *                  ((updateDurationMillis + sleepDurationMillis) / 1000f)
+     */
     public void updateCamera(float delta)
     {
         //CAMERA
@@ -150,15 +185,26 @@ public class Zone extends State {
         }
     }
     
+    /**
+     * Renders the camera and the player graphics.
+     * 
+     * @param g     Graphics
+     */
     @Override
     public void render(Graphics g)
     {
         g.translate(-camX, -camY);
         renderAtyx(g);
     }
+    
+    /**
+     * Renders the player animations and graphics.
+     * 
+     * @param g     Graphics
+     */
     public void renderAtyx(Graphics g)
     {
-                if(atyx.getJumping())
+        if(atyx.getJumping())
         {
             if (atyxFacing == "right")
             {
@@ -210,6 +256,12 @@ public class Zone extends State {
     @Override
     public void onClick(MouseEvent e) {}
     
+    /**
+     * Adds the currently pressed key to the pressed Hashmap, allowing for 
+     * multiple keys to be pressed at once (which is required in most Platformers)
+     * 
+     * @param e     Key pressed
+     */
     @Override 
     public void onKeyPress(KeyEvent e)
     {
@@ -219,6 +271,12 @@ public class Zone extends State {
         keyCodes.put(e.getKeyCode(), true);
     }
     
+    /**
+     * Removes any keys that are no longer being pressed from the pressed 
+     * HashMap.
+     * 
+     * @param e     Key released.
+     */
     @Override
     public void onKeyRelease(KeyEvent e)
     {

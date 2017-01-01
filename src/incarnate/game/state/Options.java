@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.state;
 
 import incarnate.game.main.Resources;
@@ -13,8 +8,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 /**
- *
- * @author Vicki
+ * The Options screen. Currently just an Under Construction message, but may
+ * change variables such as sound volume in the future. Possibly will save options
+ * in a file.
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public class Options extends State{
     
@@ -27,6 +26,12 @@ public class Options extends State{
     @Override
     public void update(float delta){}
     
+    /**
+     * Renders the options screen, which is similar to the main menu but just
+     * shows an "Under Construction" message.
+     * 
+     * @param g     Graphics
+     */
     @Override
     public void render(Graphics g)
     {
@@ -50,6 +55,11 @@ public class Options extends State{
     @Override
     public void onClick(MouseEvent e) {}
     
+    /**
+     * Goes back to Main Menu when the option is selected.
+     * 
+     * @param e     Key pressed
+     */
     @Override 
     public void onKeyPress(KeyEvent e)
     {

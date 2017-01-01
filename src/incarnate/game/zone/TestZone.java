@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package incarnate.game.zone;
 
 import incarnate.framework.util.DialogText;
@@ -17,8 +12,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author Vicki
+ * The Test Zone. Subclass of Zone. There is a lot of room for improvement,
+ * especially with the design of the zone classes. This is just a Test Zone for
+ * development, and will not make it into the actual game.
+ * 
+ * @author Victoria Maciver
+ * @version 0.1
  */
 public class TestZone extends Zone{
     
@@ -26,6 +25,10 @@ public class TestZone extends Zone{
     
     private Platform grassPlat1;
     
+    /**
+     * Initialises the zone. Plays the zone's music and creates platforms and
+     * characters (including the player).
+     */
     @Override
     public void init()
     {
@@ -43,6 +46,13 @@ public class TestZone extends Zone{
         }
     }
     
+    /**
+     * Prevents the player from falling through platforms that are surfaces. May
+     * change this in the future by creating a surface decorator for platforms.
+     * 
+     * @param delta     Time of delta
+     *                  ((updateDurationMillis + sleepDurationMillis) / 1000f)
+     */
     @Override
     public void updatePlatforms(float delta)
     {
@@ -69,7 +79,12 @@ public class TestZone extends Zone{
         }
     }
     
-     @Override
+    /**
+     * Renders camera, zone and player.
+     * 
+     * @param g     Graphics
+     */
+    @Override
     public void render(Graphics g)
     {
         g.translate(-camX, -camY);
@@ -77,6 +92,11 @@ public class TestZone extends Zone{
         renderAtyx(g);
     }
     
+    /**
+     * Renders the graphics required for this specific zone.
+     * 
+     * @param g     Graphics
+     */
     public void renderZone(Graphics g)
     {
         g.drawImage(Resources.cloudsBG, 0, 0, ZONE_WIDTH, ZONE_HEIGHT, null);
